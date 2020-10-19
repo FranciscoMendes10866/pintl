@@ -13,9 +13,9 @@ func serverHealthCheck() {
 		_, err := s.Every(2).Seconds().Do(func(s *server) {
 			healthy := s.checkHealth()
 			if healthy {
-				log.Printf("'%s' is healthy!", s.Name)
+				log.Printf("'%s' is running.", s.Name)
 			} else {
-				log.Printf("'%s' is not healthy", s.Name)
+				log.Printf("'%s' is down.", s.Name)
 			}
 		}, host)
 		if err != nil {
