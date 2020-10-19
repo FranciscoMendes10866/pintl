@@ -13,7 +13,7 @@ type server struct {
 	Health       bool
 }
 
-func newServer(name, urlStr string) *server {
+func launchServer(name, urlStr string) *server {
 	u, _ := url.Parse(urlStr)
 	rp := httputil.NewSingleHostReverseProxy(u)
 	return &server{

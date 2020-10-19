@@ -8,16 +8,16 @@ import (
 
 var (
 	serverList = []*server{
-		newServer("server-1", "http://127.0.0.1:3001"),
-		newServer("server-2", "http://127.0.0.1:3002"),
-		newServer("server-3", "http://127.0.0.1:3003"),
+		launchServer("server-01", "http://127.0.0.1:3001"),
+		launchServer("server-02", "http://127.0.0.1:3002"),
+		launchServer("server-03", "http://127.0.0.1:3003"),
 	}
 	lastServedIndex = 0
 )
 
 func main() {
 	http.HandleFunc("/", forwardRequest)
-	go startHealthCheck()
+	go serverHealthCheck()
 	log.Fatal(http.ListenAndServe(":6097", nil))
 }
 

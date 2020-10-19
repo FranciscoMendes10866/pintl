@@ -7,7 +7,7 @@ import (
 	"github.com/go-co-op/gocron"
 )
 
-func startHealthCheck() {
+func serverHealthCheck() {
 	s := gocron.NewScheduler(time.Local)
 	for _, host := range serverList {
 		_, err := s.Every(2).Seconds().Do(func(s *server) {
