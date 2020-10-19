@@ -10,6 +10,12 @@ To run the Load Balancer you should use the following command:
 go run *.go
 ```
 
+Runs on the following port:
+
+```
+6097
+```
+
 ## Features
 
 * [X] Prevents clients from contacting back-end servers directly.
